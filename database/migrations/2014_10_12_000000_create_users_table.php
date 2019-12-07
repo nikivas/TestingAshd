@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('login')->unique();
             $table->timestamp('login_verified_at')->nullable();
             $table->string('password');
-            $table->boolean('isAdmin');
+            $table->boolean('isAdmin')->nullable();
             $table->rememberToken();
             $table->timestamps();
 

@@ -16,9 +16,10 @@ class CreateTestsTable extends Migration
         Schema::create('tests', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('description');
             $table->integer('ball');
             $table->string('type');
-            $table->json('questionos');
+            $table->json('variables');
             $table->json('answer');
             $table->timestamps();
         });
