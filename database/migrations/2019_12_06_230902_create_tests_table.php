@@ -19,8 +19,8 @@ class CreateTestsTable extends Migration
             $table->string('description');
             $table->integer('ball');
             $table->string('type');
-            $table->json('variables');
-            $table->json('answer');
+            $table->longText('variables');
+            $table->longText('answer');
             $table->timestamps();
         });
     }

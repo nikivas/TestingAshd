@@ -8,10 +8,6 @@ class Test extends Model
 {
     protected $table = 'tests';
 
-    protected $casts = [
-        'field_name' => 'array'
-    ];
-
     protected $fillable = [
         'name',
         'description',
