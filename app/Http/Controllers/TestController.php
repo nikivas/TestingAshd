@@ -3,12 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Test;
+use App\UserTest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 
 class TestController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -17,29 +24,19 @@ class TestController extends Controller
     public function index()
     {
         $user = Auth::user();
-        return view('tests/index')->with('tests',[
-            [
-                'id' => 1,
-                'name' => 'first',
-                'description' => 'qwerty',
-                'ball' => 100,
-                'isSolved' => true
-            ],
-            [
-                'id' => 2,
-                'name' => 'first',
-                'description' => 'qwerty',
-                'ball' => 100,
-                'isSolved' => false
-            ],
-            [
-                'id' => 2,
-                'name' => 'first',
-                'description' => 'qwerty',
-                'ball' => 100,
-                'isSolved' => null
-            ]
-        ]);
+        $tests = Test::all();
+        $solvedTests = UserTest::where('user_id', '=', $user['id'])->get();
+        $solvedTestsDictionary = [];
+
+        foreach ($solvedTests as $el) {
+            $solvedTestsDictionary[$el['id']] = $el['is_solved']; 
+        }
+
+        foreach ($tests as $el) {
+            $el['isSolved'] = $solvedTestsDictionary[$el['id']] ?? null;
+        }
+
+        return view('tests/index')->with('tests',$tests);
     }
 
     /**
@@ -71,7 +68,14 @@ class TestController extends Controller
      */
     public function show(Test $test)
     {
-        //
+        $solvedTests = UserTest::all()
+            ->where('user_id', '=', Auth::user())
+            ->where('test_id', '=', $test['id']);
+        if(count($solvedTests) != 0 || $test == null)
+        {
+            return redirect()->route('tests.index');
+        }
+        return view('tests.show')->with('test', $test);
     }
 
     /**
