@@ -6,7 +6,8 @@ use App\Test;
 use App\UserTest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Redirect;
 
 class TestController extends Controller
 {
@@ -27,9 +28,12 @@ class TestController extends Controller
         $tests = Test::all();
         $solvedTests = UserTest::where('user_id', '=', $user['id'])->get();
         $solvedTestsDictionary = [];
-
+        // dd($solvedTests);
         foreach ($solvedTests as $el) {
-            $solvedTestsDictionary[$el['id']] = $el['is_solved']; 
+            if(isset($solvedTestsDictionary[$el['test_id']]))
+                $solvedTestsDictionary[$el['test_id']] = max($solvedTestsDictionary[$el['test_id']], $el['is_solved']);
+            else
+                $solvedTestsDictionary[$el['test_id']] = $el['is_solved']; 
         }
 
         foreach ($tests as $el) {
@@ -110,5 +114,50 @@ class TestController extends Controller
     public function destroy(Test $test)
     {
         //
+    }
+
+    public function check(Request $request, $id){
+        $rules = ['answer' => 'required|string|min:1'];
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails()) 
+        {
+            return Redirect::to('tasks/' . $id)
+                    ->withErrors($validator);
+        }
+
+        $test = Test::find($id);
+        $user = Auth::user();
+        $isSolved = 0;
+
+        if(!$test || !$user)
+            return redirect()->route('tests.index');
+
+        $answer = $request->get('answer');
+        $rightAnswer = json_decode($test['answer']);
+        // dd($rightAnswer->id);
+        if($rightAnswer->id == $answer)
+        {
+           $isSolved = 1; 
+        }
+
+        UserTest::create([
+            'user_id' => $user['id'],
+            'test_id' => $test['id'],
+            'is_solved' => $isSolved
+        ]);
+
+
+        if($rightAnswer->id != $answer){
+            return view('tests.show')->with([
+                'error' => 'Wrong flag',
+                'test' => $test
+                ]);
+        }
+        return redirect()->route('tests.index');
+
+        
+
+
     }
 }

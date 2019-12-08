@@ -21,3 +21,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resources([
     'tests' => 'TestController'
 ]);
+
+Route::post('/tests/{test}','TestController@check')->name('test.check');

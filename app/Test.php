@@ -12,4 +12,13 @@ class Test extends Model
         'field_name' => 'array'
     ];
 
+    protected $fillable = [
+        'name',
+        'description',
+        'ball',
+        'variables',
+        'answer',
+        'type'
+    ];
+
 }

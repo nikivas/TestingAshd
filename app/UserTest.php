@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class UserTest extends Model
 {
     protected $table = 'users_tests';
+    public $timestamps = false;
+
+    protected $fillable = [
+        'user_id',
+        'test_id',
+        'is_solved'
+    ];
 
 }

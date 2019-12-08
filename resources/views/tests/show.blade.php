@@ -17,7 +17,7 @@
                             <div class="col-md-5">
                                 @csrf
                                 <!-- <label for="flag" class="col-md-1 col-form-label text-md-center ">Flag</label> -->
-                                <input type="text" class="form-control{{ $errors->has('answer') ? ' is-invalid' : '' }}" id="flag" placeholder="Флаг" name="answer">
+                            <input type="text" class="form-control {{ $errors->has('answer') ? ' is-invalid' : '' }}{{$error == 'Wrong flag' ? 'is-invalid':''}}" id="flag" placeholder="Флаг" name="answer">
                                 
                                 @if ($errors->has('answer'))
                                 <span class="invalid-feedback" role="alert">

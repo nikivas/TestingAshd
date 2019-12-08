@@ -57,32 +57,14 @@
                                 </li>
                             @endif
                         @else
-                        @if (auth()->user()->isAdmin)
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/tasks/create') }}">
-                                {{ __('Добавить задание') }}
-                            </a>
-                        </li>
-                        
-                        @endif
                         
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/statistic') }}">
-                                {{ __('Статистика') }}
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/tasks') }}">
-                                {{ __('Задания') }}
+                            <a class="nav-link" href="{{ url('/tests') }}">
+                                {{ __('ТЕСТЫ') }}
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/home') }}">
-                                {{ __('Таблица результатов') }}
-                            </a>
-                        </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
