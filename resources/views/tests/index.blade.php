@@ -16,6 +16,8 @@
                     @foreach($tests as $test)
                         @if ($test['isSolved'])
                         <div class="card border-success" style="width: 20rem;  height: 13rem; margin: 10px;">
+                        @elseif ($test['isSolved'] === false) 
+                        <div class="card border-fail" style="width: 20rem; height: 13rem; margin: 10px;">
                         @else
                         <div class="card" style="width: 20rem; height: 13rem; margin: 10px;">
                         @endif
@@ -27,7 +29,7 @@
                                 
 
                                 @if ($test['isSolved']==0)
-                                    <a href="{{ route('tasks.show', $test['id']) }}" class="card-link btn btn-primary">Ссылка на страницу задания</a>    
+                                    <a href="{{ route('tests.show', $test['id']) }}" class="card-link btn btn-primary">Ссылка на страницу задания</a>    
                                 @else
                                     <div class="check_container">
                                         <div class="check_text" style="padding: 1px;">

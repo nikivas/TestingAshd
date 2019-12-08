@@ -7569,6 +7569,10 @@ button.bg-dark:focus {
   border-color: #38c172 !important;
 }
 
+.border-fail {
+  border-color: #d43d17 !important;
+}
+
 .border-info {
   border-color: #6cb2eb !important;
 }

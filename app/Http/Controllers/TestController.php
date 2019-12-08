@@ -30,7 +30,14 @@ class TestController extends Controller
                 'name' => 'first',
                 'description' => 'qwerty',
                 'ball' => 100,
-                'isSolved' => true
+                'isSolved' => false
+            ],
+            [
+                'id' => 2,
+                'name' => 'first',
+                'description' => 'qwerty',
+                'ball' => 100,
+                'isSolved' => null
             ]
         ]);
     }
