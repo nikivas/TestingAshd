@@ -10,6 +10,23 @@
                     <h1 class="display-6">{{ $test['ball'] }}</h1>
                     <hr class="my-4">
                     <p>{{ $test['description'] }} </p>
+                    @if ($test['type'] == 'one')
+                        @foreach (json_decode($test['variables']) as $el)
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                <input id="answer{{$el->id}}" type="radio" class="form-check-input" name="optradio" value="{{$el->id}}">{{$el->text}}
+                                </label>
+                            </div>
+                        @endforeach
+                    @elseif ($test['type'] == 'multy')
+                        @foreach (json_decode($test['variables']) as $el)
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input id="answer{{$el->id}}" type="checkbox" class="form-check-input" value="{{$el->id}}">{{$el->text}}
+                                </label>
+                            </div>
+                        @endforeach
+                    @endif
                     <form method="POST">
                         <div class="form-group row">
 

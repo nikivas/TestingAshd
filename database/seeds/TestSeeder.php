@@ -19,8 +19,8 @@ class TestSeeder extends Seeder
                 'name' => $faker->word(),   
                 'description' => $faker->text(),
                 'ball' => 100,
-                'type' => 'one',
-                'variables' => '[{"id" : 1, "text": "first var"} , {"id" : 2,"text": "fourth var"} , {"id" : 3,"text": "third var"} , {"id" : 4,"text": "last var"} , ]',
+                'type' => $i % 2 == 0 ? 'one' : 'multy',
+                'variables' => '[{"id" : 1, "text": "first var"} , {"id" : 2,"text": "fourth var"} , {"id" : 3,"text": "third var"} , {"id" : 4,"text": "last var"} ]',
                 'answer' => '{"id" : 2}'
             ]);
         }
