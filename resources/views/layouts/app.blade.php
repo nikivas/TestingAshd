@@ -14,6 +14,10 @@
     <script src="http://testing/js/particles.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
+    @if (Route::current()->getName() == 'crossword')
+        <script src="{{ asset('js/crossword.js') }}" defer></script>
+    @endif
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -21,6 +25,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    @if (Route::current()->getName() == 'crossword')
+        <link href="{{ asset('css/crossword.css') }}" rel="stylesheet">
+    @endif
+
 </head>
 <body>
     <!-- Particles block -->
@@ -60,9 +69,14 @@
                         
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/tests') }}">
-                                {{ __('ТЕСТЫ') }}
+                                {{ __('Тест') }}
                             </a>
                         </li>
+                        <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/crossword') }}">
+                                    {{ __('Кроссворд') }}
+                                </a>
+                            </li>
 
                         
                         <li class="nav-item">

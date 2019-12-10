@@ -1,0 +1,82 @@
+.crossword-input {
+    width: 40px;
+    height: 40px;
+    margin: 0px;
+    font: 20px bold;
+    text-align: center;
+    border-radius: 3px;
+    font-family: Verdana;
+    font-weight: bold;
+}
+
+.word1 {
+    margin-left: -20px;
+}
+
+.word2 {
+    margin-left: 336px;
+}
+
+.word3 {
+    margin-left: 247px;
+}
+
+.word4 {
+    margin-left: -108px;
+}
+
+.word5 {
+    margin-left: 292px;
+}
+
+.word6 {
+    margin-left: 70px;
+}
+
+.word7 {
+    margin-left: 115px;
+}
+
+#i19,
+#i21,
+#i33,
+#i411,
+#i52,
+#i67,
+#i76 {
+    border-color: #0F5E63;
+    border-width: 5px;
+}
+
+@media screen and (device-width: 1024px) {
+    .container {
+        width: 870px;
+    }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 768px),
+only screen and (min-device-width: 480px) and (max-device-width: 768px) {
+    #wraper {
+        width: 700px;
+    }
+}
+
+.list-group {
+    margin-top: 20px;
+}
+
+.list-group-item {
+    line-height: 1.3em;
+    background: #f0fff0;
+}
+
+input.crossword-input {
+    width: 40px;
+    height: 40px;
+    margin: 0px;
+    font: 20px bold;
+    text-align: center;
+    border-radius: 3px;
+    font-family: Verdana;
+    font-weight: bold;
+}
