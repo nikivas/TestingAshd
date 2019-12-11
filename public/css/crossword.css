@@ -1,6 +1,6 @@
 .crossword-input {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     margin: 0px;
     font: 20px bold;
     text-align: center;
@@ -10,31 +10,41 @@
 }
 
 .word1 {
-    margin-left: -20px;
+    margin-left: 67px;
+    display: inline-block;
 }
 
 .word2 {
-    margin-left: 336px;
+    margin-left: 337px;
+    display: inline-block;
 }
 
 .word3 {
-    margin-left: 247px;
+    margin-left: 270px;
+    display: inline-block;
 }
 
 .word4 {
-    margin-left: -108px;
+    display: inline-block;
 }
 
 .word5 {
-    margin-left: 292px;
+    margin-left: 305px;
+    display: inline-block;
 }
 
 .word6 {
-    margin-left: 70px;
+    margin-left: 136px;
+    display: inline-block;
 }
 
 .word7 {
-    margin-left: 115px;
+    margin-left: 170px;
+    display: inline-block;
+}
+
+.top-mrg {
+    margin-top: 3px;
 }
 
 #i19,
@@ -68,15 +78,4 @@ only screen and (min-device-width: 480px) and (max-device-width: 768px) {
 .list-group-item {
     line-height: 1.3em;
     background: #f0fff0;
-}
-
-input.crossword-input {
-    width: 40px;
-    height: 40px;
-    margin: 0px;
-    font: 20px bold;
-    text-align: center;
-    border-radius: 3px;
-    font-family: Verdana;
-    font-weight: bold;
 }

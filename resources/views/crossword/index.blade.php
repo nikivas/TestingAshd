@@ -6,13 +6,13 @@
       <div class="card">
          <div class="card-body">
             <div class="jumbotron" class="margin: 0px;">
-               <h1 class="display-4">asdasdas</h1>
-               <h1> Попробуйте справиться и с таким заданием!</h1>
+               
+               <h1> Кроссворд</h1>
                <br>
                <div class="row">
                   <div class="col-12">
-                     <div class="display:inline-block" class="word1">
-                        <label>1.</label>
+                     <label>1.</label>
+                     <div class="word1 top-mrg" >
                         <input class="crossword-input" type="text" id="i11" maxlength="1">
                         <input class="crossword-input" type="text" id="i12" maxlength="1">
                         <input class="crossword-input" type="text" id="i13" maxlength="1">
@@ -30,8 +30,8 @@
                         <input class="crossword-input" type="text" id="i115" maxlength="1">
                         <input class="crossword-input" type="text" id="i116" maxlength="1">
                      </div>
-                     <div class="display:inline-block" class="word2">
-                        <label>2.</label>
+                     <div class="word2 top-mrg">
+                           <label>2.</label>
                         <input class="crossword-input" type="text" id="i21" maxlength="1">
                         <input class="crossword-input" type="text" id="i22" maxlength="1">
                         <input class="crossword-input" type="text" id="i23" maxlength="1">
@@ -50,8 +50,8 @@
                         <input class="crossword-input" type="text" id="i216" maxlength="1">
                         <input class="crossword-input" type="text" id="i217" maxlength="1">
                      </div>
-                     <div class="display:inline-block" class="word3">
-                        <label>3.</label>
+                     <div class="word3 top-mrg">
+                           <label>3.</label>
                         <input class="crossword-input" type="text" id="i31" maxlength="1">
                         <input class="crossword-input" type="text" id="i32" maxlength="1">
                         <input class="crossword-input" type="text" id="i33" maxlength="1">
@@ -65,8 +65,8 @@
                         <input class="crossword-input" type="text" id="i310" maxlength="1">
                         <input class="crossword-input" type="text" id="i311" maxlength="1">
                      </div>
-                     <div class="display:inline-block" class="word4">
-                        <label>4.</label>
+                     <div class="word4 top-mrg">
+                           <label>4.</label>
                         <input class="crossword-input" type="text" id="i41" maxlength="1">
                         <input class="crossword-input" type="text" id="i42" maxlength="1">
                         <input class="crossword-input" type="text" id="i43" maxlength="1">
@@ -84,8 +84,8 @@
                         <input class="crossword-input" type="text" id="i415" maxlength="1">
                      </div>
                      <br>
-                     <div class="display:inline-block" class="word5">
-                        <label>5.</label>
+                     <div class="word5 top-mrg">
+                           <label>5.</label>
                         <input class="crossword-input" type="text" id="i51" maxlength="1">
                         <input class="crossword-input" type="text" id="i52" maxlength="1">
                         <input class="crossword-input" type="text" id="i53" maxlength="1">
@@ -96,8 +96,8 @@
                         <input class="crossword-input" type="text" id="i58" maxlength="1">     
                      </div>
                      <br>
-                     <div class="display:inline-block" class="word6">
-                        <label>6.</label>
+                     <div class="word6 top-mrg">
+                           <label>6.</label>
                         <input class="crossword-input" type="text" id="i61" maxlength="1">
                         <input class="crossword-input" type="text" id="i62" maxlength="1">
                         <input class="crossword-input" type="text" id="i63" maxlength="1">
@@ -110,8 +110,8 @@
                         <input class="crossword-input" type="text" id="i610" maxlength="1">
                      </div>
                      <br>
-                     <div class="display:inline-block" class="word7">
-                        <label>7.</label>
+                     <div class="word7 top-mrg">  
+                           <label>7.</label>
                         <input class="crossword-input" type="text" id="i71" maxlength="1">
                         <input class="crossword-input" type="text" id="i72" maxlength="1">
                         <input class="crossword-input" type="text" id="i73" maxlength="1">
@@ -123,7 +123,7 @@
                         <input class="crossword-input" type="text" id="i79" maxlength="1">
                         <input class="crossword-input" type="text" id="i710" maxlength="1">
                      </div>
-                     <ul class="list-group">
+                     <ul class="list-group top-mrg">
                         <li class="list-group-item">1. Одно из ключевых достоинств системы хранения NAS</li>
                         <li class="list-group-item">2. Что является одним из наиболее важных критериев при покупке нового сетевого накопителя?</li>
                         <li class="list-group-item">3. В последнее время получили широкое распространение устройства, в которых NAS объединяется с дополнительными службами, такими как, фотогалерея, почтовый клиент, станция видеонаблюдения. Что это за устройства?</li>
