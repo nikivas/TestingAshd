@@ -127,9 +127,6 @@ input7.onchange = function() {
 
 
 
-
-
-
 // trash
 
 var MD5 = function(d) { result = M(V(Y(X(d), 8 * d.length))); return result.toLowerCase() };
@@ -165,3 +162,42 @@ function md5_ii(d, _, m, f, r, i, n) { return md5_cmn(m ^ (_ | ~f), d, _, r, i, 
 function safe_add(d, _) { var m = (65535 & d) + (65535 & _); return (d >> 16) + (_ >> 16) + (m >> 16) << 16 | 65535 & m }
 
 function bit_rol(d, _) { return d << _ | d >>> 32 - _ }
+
+
+
+$(document).ready(function() {
+    lens = { 1: 17, 2: 18, 3: 12, 4: 16, 5: 9, 6: 11, 7: 11 };
+    for (var id = 1; id < 8; id++) {
+        let firstWordIds = [];
+        for (var i = 1; i < lens[id]; i++) { firstWordIds.push('#i' + id + +i.toString()) }
+        if (id == 1) {
+            firstWordIds.forEach(function(el) {
+                $(el).click(input1.onchange);
+            });
+        } else if (id == 2) {
+            firstWordIds.forEach(function(el) {
+                $(el).click(input2.onchange);
+            });
+        } else if (id == 3) {
+            firstWordIds.forEach(function(el) {
+                $(el).click(input3.onchange);
+            });
+        } else if (id == 4) {
+            firstWordIds.forEach(function(el) {
+                $(el).click(input4.onchange);
+            });
+        } else if (id == 5) {
+            firstWordIds.forEach(function(el) {
+                $(el).click(input5.onchange);
+            });
+        } else if (id == 6) {
+            firstWordIds.forEach(function(el) {
+                $(el).click(input6.onchange);
+            });
+        } else if (id == 7) {
+            firstWordIds.forEach(function(el) {
+                $(el).click(input7.onchange);
+            });
+        }
+    }
+});

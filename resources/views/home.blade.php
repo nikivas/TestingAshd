@@ -27,7 +27,7 @@
                                 </div>
                             </div>
                             <div class="col-4">
-                                    <p>Введите флаг из теста:</p>
+                                    <p>Введите флаг из кроссворда:</p>
                                 <div style="display:inline-block" class="word2">                                     
                                     <input class="flag-input" type="text" id="i21" maxlength="1">
                                     <input class="flag-input" type="text" id="i22" maxlength="1">
@@ -41,7 +41,7 @@
                                 <button id="send-flag" type="button" class="btn btn-success btn-lg" >Проверить</button>
                             </div>
                             <div class="col-4 offset-1">
-                                    <p>Введите флаг из теста:</p>
+                                    <p>Введите флаг из квадрата:</p>
                                 <div style="display:inline-block" class="word3">
                                     <input class="flag-input" type="text" id="i31" maxlength="1">
                                     <input class="flag-input" type="text" id="i32" maxlength="1">
