@@ -33,14 +33,11 @@ class FlagController extends Controller
             $flagsText[$el['id']] = $el['text']; 
         }
         // dd($flagsText);
-        $i = 0;
         $rightAnswers = [];
         foreach ($answer as $el) {
             $str1 = strtolower(iconv('UTF-8','CP1251',$el->text));
             $str2 = strtolower(iconv('UTF-8','CP1251',$flagsText[$el->id]));
-            if($i++ > 0)
-                dd([$str1,$str2]);
-            if ( strcmp($str1, $str2) == 0 || strcmp($str1, $flagsText[$el->id]) == 0 )
+            if ( strcmp($str1, $str2) == 0 || strcmp($str1, strtolower($flagsText[$el->id])) == 0 || strcmp(mb_strtolower($el->text),mb_strtolower($flagsText[$el->id]))==0 )
             {
                 $rightAnswers[] = $el;
                 if(count(UserFlag::where('user_id', '=', $user['id'])->where('flag_id','=',$el->id)->get()) == 0)
