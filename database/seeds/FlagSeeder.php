@@ -17,7 +17,7 @@ class FlagSeeder extends Seeder
         ]);
         DB::table('flags')->insert([
             'id' => 2,
-            'text' => 'рэнделл',  
+            'text' => 'рэндэлл',  
         ]);
         DB::table('flags')->insert([
             'id' => 3,
