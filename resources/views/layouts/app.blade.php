@@ -66,7 +66,11 @@
                                 </li>
                             @endif
                         @else
-                        
+                        <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/home') }}">
+                                    {{ __('Главная') }}
+                                </a>
+                            </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/tests') }}">
                                 {{ __('Тест') }}
