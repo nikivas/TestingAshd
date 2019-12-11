@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\DB;
 
 class TestController extends Controller
 {
@@ -28,6 +29,22 @@ class TestController extends Controller
         $tests = Test::all();
         $solvedTests = UserTest::where('user_id', '=', $user['id'])->get();
         $solvedTestsDictionary = [];
+        
+        $ballQuery = DB::table('users_tests')
+                        ->select(DB::raw('sum(tests.ball) as ball'))
+                        ->join('tests','users_tests.test_id', '=', 'tests.id')
+                        ->where('user_id', '=', $user['id'])
+                        ->groupBy('user_id')
+                        ->get();
+        // dd(count($ballQuery));
+        // if(count($ballQuery) == 0) 
+        // {
+            
+        // }
+        // if(count($ballQuery))
+        // $ball = $ballQuery[0]->ball;
+
+        // dd($ball);   
         // dd($solvedTests);
         foreach ($solvedTests as $el) {
             if (isset($solvedTestsDictionary[$el['test_id']]))
@@ -40,7 +57,9 @@ class TestController extends Controller
             $el['isSolved'] = $solvedTestsDictionary[$el['id']] ?? null;
         }
 
-        return view('tests/index')->with('tests', $tests);
+        return view('tests/index')
+                ->with('tests', $tests);
+                // ->with('ball',$ball);
     }
 
     /**
@@ -126,7 +145,7 @@ class TestController extends Controller
         $validator = Validator::make($request->all(), $rules);
 
         $tryesCount = count(UserTest::where('user_id','=',Auth::user()['id'])->where('test_id','=',$id)->get());
-        
+
         if ($validator->fails() || $tryesCount > 0) {
             return redirect()->route('tests.index');
         }

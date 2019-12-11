@@ -15,4 +15,8 @@ class UserTest extends Model
         'is_solved'
     ];
 
+    public function test(){
+        return $this->belongsTo(Test::class, 'test_id');
+    }
+
 }

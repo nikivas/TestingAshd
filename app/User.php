@@ -36,4 +36,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * @param User $user
+     * @return array
+     */
+    public static function getBall(User $user){
+        
+    }
 }
