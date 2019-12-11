@@ -15,11 +15,11 @@
                 <div class="task-container">
                     @foreach($tests as $test)
                         @if ($test['isSolved'] === 1)
-                        <div class="card border-success" style="width: 20rem;  height: 13rem; margin: 10px;">
+                            <div class="card border-success" style="width: 20rem;  height: 13rem; margin: 10px;">
                         @elseif ($test['isSolved'] === 0) 
-                        <div class="card border-fail" style="width: 20rem; height: 13rem; margin: 10px;">
+                            <div class="card border-fail" style="width: 20rem; height: 13rem; margin: 10px;">
                         @else
-                        <div class="card" style="width: 20rem; height: 13rem; margin: 10px;">
+                            <div class="card" style="width: 20rem; height: 13rem; margin: 10px;">
                         @endif
                         
                             <div class="card-body" >
@@ -33,10 +33,16 @@
                                 @elseif($test['isSolved'] === 1)
                                     <div class="check_container">
                                         <div class="check_text" style="padding: 1px;">
-                                            <span>Вы уже решили это задание!</span> 
+                                            <span>Вы уже решили это задание!</span>
                                             <img src="checked.svg" style="width: 10%; margin-left: 15px">
                                         </div>
-                                    </div>    
+                                    </div>
+                                @else
+                                    <div class="check_container">
+                                        <div class="check_text" style="padding: 1px;">
+                                            <span>Вы уже решили это задание!</span>
+                                        </div>
+                                    </div>
                                 @endif
                             </div>
                         </div>

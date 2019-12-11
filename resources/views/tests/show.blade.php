@@ -61,7 +61,7 @@
                         <div class="form-group">
                         </div>
                         <div class="form-group">
-                            <button type="submit" onclick="$('#flag').val(testsRoute());" class="btn btn-primary">Check</button>
+                            <button type="submit" onclick="$('#flag').val(testsRoute());" class="btn btn-primary">Ответить</button>
                         </div>
                     </form>
                 </div>

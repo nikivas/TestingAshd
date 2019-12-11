@@ -125,9 +125,10 @@ class TestController extends Controller
         $rules = ['answer' => 'required|string|min:1'];
         $validator = Validator::make($request->all(), $rules);
 
-        if ($validator->fails()) {
-            return Redirect::to('tasks/' . $id)
-                ->withErrors($validator);
+        $tryesCount = count(UserTest::where('user_id','=',Auth::user()['id'])->where('test_id','=',$id)->get());
+        
+        if ($validator->fails() || $tryesCount > 0) {
+            return redirect()->route('tests.index');
         }
 
         $test = Test::find($id);
