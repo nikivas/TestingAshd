@@ -13,11 +13,11 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="http://testing/js/particles.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-
     @if (Route::current()->getName() == 'crossword')
         <script src="{{ asset('js/crossword.js') }}" defer></script>
+    @elseif(Route::current()->getName() == 'tests.show')
+        <script src="{{ asset('js/test.js') }}" defer></script>
     @endif
-
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

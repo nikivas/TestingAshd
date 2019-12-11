@@ -30,17 +30,17 @@ class TestController extends Controller
         $solvedTestsDictionary = [];
         // dd($solvedTests);
         foreach ($solvedTests as $el) {
-            if(isset($solvedTestsDictionary[$el['test_id']]))
+            if (isset($solvedTestsDictionary[$el['test_id']]))
                 $solvedTestsDictionary[$el['test_id']] = max($solvedTestsDictionary[$el['test_id']], $el['is_solved']);
             else
-                $solvedTestsDictionary[$el['test_id']] = $el['is_solved']; 
+                $solvedTestsDictionary[$el['test_id']] = $el['is_solved'];
         }
 
         foreach ($tests as $el) {
             $el['isSolved'] = $solvedTestsDictionary[$el['id']] ?? null;
         }
 
-        return view('tests/index')->with('tests',$tests);
+        return view('tests/index')->with('tests', $tests);
     }
 
     /**
@@ -75,8 +75,7 @@ class TestController extends Controller
         $solvedTests = UserTest::all()
             ->where('user_id', '=', Auth::user())
             ->where('test_id', '=', $test['id']);
-        if(count($solvedTests) != 0 || $test == null)
-        {
+        if (count($solvedTests) != 0 || $test == null) {
             return redirect()->route('tests.index');
         }
         return view('tests.show')->with('test', $test);
@@ -116,29 +115,47 @@ class TestController extends Controller
         //
     }
 
-    public function check(Request $request, $id){
+    /**
+     * @param  \Illuminate\Http\Request  $request
+     * $request => [ {"id" : 123}, {"id": 321}, ...]
+     * @return \Illuminate\Http\Response 
+     */
+    public function check(Request $request, $id)
+    {
         $rules = ['answer' => 'required|string|min:1'];
         $validator = Validator::make($request->all(), $rules);
 
-        if ($validator->fails()) 
-        {
+        if ($validator->fails()) {
             return Redirect::to('tasks/' . $id)
-                    ->withErrors($validator);
+                ->withErrors($validator);
         }
 
         $test = Test::find($id);
         $user = Auth::user();
         $isSolved = 0;
 
-        if(!$test || !$user)
+        if (!$test || !$user)
             return redirect()->route('tests.index');
 
-        $answer = $request->get('answer');
+        $answer = json_decode($request->get('answer'));
         $rightAnswer = json_decode($test['answer']);
-        // dd($rightAnswer->id);
-        if($rightAnswer->id == $answer)
-        {
-           $isSolved = 1; 
+
+        //sorting by keys
+        foreach ([&$answer, &$rightAnswer] as &$el) {
+            usort($el, function ($a, $b) {
+                return strcmp(strval($a->id), strval($b->id));
+            });
+        }
+        unset($el);
+
+        $rightAnswer = json_encode($rightAnswer);
+        $answer = json_encode($answer);
+
+        // dd($answer);
+        // dd($rightAnswer);
+
+        if (strcmp($rightAnswer, $answer) == 0) {
+            $isSolved = 1;
         }
 
         UserTest::create([
@@ -147,17 +164,6 @@ class TestController extends Controller
             'is_solved' => $isSolved
         ]);
 
-
-        if($rightAnswer->id != $answer){
-            return view('tests.show')->with([
-                'error' => 'Wrong flag',
-                'test' => $test
-                ]);
-        }
         return redirect()->route('tests.index');
-
-        
-
-
     }
 }

@@ -1,6 +1,8 @@
 @extends('layouts.app')
-
 @section('content')
+<div style="display:none;">
+<input id="testType" type="text" value="{{$test['type']}}">
+</div>
 <div class="container task-wrap">
     <div class="row justify-content-center">
         <div class="card">
@@ -14,7 +16,7 @@
                         @foreach (json_decode($test['variables']) as $el)
                             <div class="form-check">
                                 <label class="form-check-label">
-                                <input id="answer{{$el->id}}" type="radio" class="form-check-input" name="optradio" value="{{$el->id}}">{{$el->text}}
+                                <input id="answer{{$el->id}}" type="radio" class="form-check-input" name="answer" value="{{$el->id}}">{{$el->text}}
                                 </label>
                             </div>
                         @endforeach
@@ -22,7 +24,7 @@
                         @foreach (json_decode($test['variables']) as $el)
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input id="answer{{$el->id}}" type="checkbox" class="form-check-input" value="{{$el->id}}">{{$el->text}}
+                                    <input id="answer{{$el->id}}" type="checkbox" class="form-check-input" name="answer" value="{{$el->id}}">{{$el->text}}
                                 </label>
                             </div>
                         @endforeach
@@ -34,7 +36,7 @@
                             <div class="col-md-5">
                                 @csrf
                                 <!-- <label for="flag" class="col-md-1 col-form-label text-md-center ">Flag</label> -->
-                            <input type="text" class="form-control {{ $errors->has('answer') ? ' is-invalid' : '' }}{{@$error == 'Wrong flag' ? 'is-invalid':''}}" id="flag" placeholder="Флаг" name="answer">
+                            <input style="display:none;" type="text" class="form-control {{ $errors->has('answer') ? ' is-invalid' : '' }}{{@$error == 'Wrong flag' ? 'is-invalid':''}}" id="flag" placeholder="Флаг" name="answer">
                                 
                                 @if ($errors->has('answer'))
                                 <span class="invalid-feedback" role="alert">
@@ -47,7 +49,7 @@
                         <div class="form-group">
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Check</button>
+                            <button type="submit" onclick="$('#flag').val(testsRoute());" class="btn btn-primary">Check</button>
                         </div>
                     </form>
                 </div>
