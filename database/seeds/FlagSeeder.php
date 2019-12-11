@@ -17,11 +17,11 @@ class FlagSeeder extends Seeder
         ]);
         DB::table('flags')->insert([
             'id' => 2,
-            'name' => 'рэнделл',  
+            'text' => 'рэнделл',  
         ]);
         DB::table('flags')->insert([
             'id' => 3,
-            'name' => 'ньюкасл',
+            'text' => 'ньюкасл',
         ]);
     }
 }
