@@ -17,6 +17,8 @@
         <script src="{{ asset('js/crossword.js') }}" defer></script>
     @elseif(Route::current()->getName() == 'tests.show')
         <script src="{{ asset('js/test.js') }}" defer></script>
+    @elseif(Route::current()->getName() == 'home')
+        <script src="{{ asset('js/flagCheck.js') }}" defer></script>
     @endif
 
     <!-- Fonts -->

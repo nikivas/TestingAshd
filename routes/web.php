@@ -24,3 +24,5 @@ Route::resources([
 
 Route::post('/tests/{test}','TestController@check')->name('test.check');
 Route::get('/crossword', 'CrosswordController@index')->name('crossword');
+
+Route::post('/flag/check', 'FlagController@check')->name('flagCheck');
