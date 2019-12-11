@@ -17,6 +17,7 @@ class CreateRandomAnswersTable extends Migration
             $table->bigIncrements('id');
             $table->longText('answer');
             $table->integer('position');
+            $table->string('digit');
         });
     }
 
