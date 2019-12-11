@@ -37,7 +37,7 @@ class FlagController extends Controller
         foreach ($answer as $el) {
             $str1 = strtolower(iconv('UTF-8','CP1251',$el->text));
             $str2 = strtolower(iconv('UTF-8','CP1251',$flagsText[$el->id]));
-            if ( strcmp($str1, $str2) == 0 )
+            if ( strcmp($str1, $str2) == 0 || strcmp($str1, $flagsText[$el->id]) == 0 )
             {
                 $rightAnswers[] = $el;
                 if(count(UserFlag::where('user_id', '=', $user['id'])->where('flag_id','=',$el->id)->get()) == 0)
