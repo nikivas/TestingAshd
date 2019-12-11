@@ -31,7 +31,7 @@ class TestSeeder extends Seeder
                 'name' => $faker->word(),   
                 'description' => $faker->text(),
                 'ball' => 100,
-                'type' => 'one',
+                'type' => 'collocation',
                 'variables' => '[ [ {"id" : 1, "text": "first var"} , {"id" : 2,"text": "fourth var"} ], [ {"id" : 3,"text": "third var"} , {"id" : 4,"text": "last var"} ] ]',
                 'answer' => '[{"id1" : 2, "id2" : 3}, {"id1" : 2, "id2" : 3}]'
             ]);

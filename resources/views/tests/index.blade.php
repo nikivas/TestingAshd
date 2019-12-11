@@ -28,9 +28,9 @@
                                 <p class="card-text">{{ mb_strcut($test['description'], 0, 100)."..." }}</p>
                                 
 
-                                @if ($test['isSolved']==0)
+                                @if ($test['isSolved'] === null)
                                     <a href="{{ route('tests.show', $test['id']) }}" class="card-link btn btn-primary">Ссылка на страницу задания</a>    
-                                @else
+                                @elseif($test['isSolved'] === 1)
                                     <div class="check_container">
                                         <div class="check_text" style="padding: 1px;">
                                             <span>Вы уже решили это задание!</span> 

@@ -28,6 +28,18 @@
                                 </label>
                             </div>
                         @endforeach
+                    @elseif ($test['type'] == 'collocation')
+                        <div class="row">
+                            @foreach (json_decode($test['variables']) as $col)
+                            <div class="col">
+                                @foreach ($col as $row)
+                                    <div class="row">
+                                        {{$row->text}}
+                                    </div>
+                                @endforeach
+                            </div>
+                            @endforeach
+                        </div>
                     @endif
                     <form method="POST">
                         <div class="form-group row">
