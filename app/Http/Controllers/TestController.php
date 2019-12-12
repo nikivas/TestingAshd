@@ -34,18 +34,15 @@ class TestController extends Controller
                         ->select(DB::raw('sum(tests.ball) as ball'))
                         ->join('tests','users_tests.test_id', '=', 'tests.id')
                         ->where('user_id', '=', $user['id'])
+                        ->where('is_solved','=',1)
                         ->groupBy('user_id')
                         ->get();
-        // dd(count($ballQuery));
-        // if(count($ballQuery) == 0) 
-        // {
-            
-        // }
-        // if(count($ballQuery))
-        // $ball = $ballQuery[0]->ball;
-
-        // dd($ball);   
-        // dd($solvedTests);
+        // dd($ballQuery);
+        $ball = 0;
+        if (count($ballQuery) != 0) {
+            $ball = intval($ballQuery[0]->ball);
+        }
+        // dd($ball);
         foreach ($solvedTests as $el) {
             if (isset($solvedTestsDictionary[$el['test_id']]))
                 $solvedTestsDictionary[$el['test_id']] = max($solvedTestsDictionary[$el['test_id']], $el['is_solved']);
@@ -58,8 +55,8 @@ class TestController extends Controller
         }
 
         return view('tests/index')
-                ->with('tests', $tests);
-                // ->with('ball',$ball);
+                ->with('tests', $tests)
+                ->with('ball',$ball);
     }
 
     /**
