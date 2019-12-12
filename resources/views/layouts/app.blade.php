@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'MISIS ASHD') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -82,7 +82,7 @@
                         </li>
                         <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/cube') }}">
-                                    {{ __('Куб') }}
+                                    {{ __('Квадрат') }}
                                 </a>
                             </li>
                         <li class="nav-item">

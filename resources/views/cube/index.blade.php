@@ -6,6 +6,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="jumbotron" class="margin: 0px;">
+                        <p>Найдите в квадрате все слова, относящиеся к теме Файловая система хранения (NAS). Слова располагаются ТОЛЬКО по горизонтали. Все найденные слова подставьте под нужные маски.</p>
                     <div class="row">
                         <div class="col-6">
                             <h5> Найдите слова в квадрате</h5>
@@ -518,7 +519,7 @@
 
 
                         <div class="col-6">
-                            <h5> Впишите в маске справа</h5>
+                            <h5> Впишите в маски справа</h5>
                             <br>
 
                             <div style="display:inline-block" class="word1">
@@ -538,9 +539,10 @@
                                 <input type="text" class="cube-input"  id="i113" maxlength="1">
                                 <input type="text" class="cube-input"  id="i114" maxlength="1">
 
+                                <br>Чаще всего ? хранение данных в разных системах хранения, либо в системе хранения и облаке, используют для архивирования или с целью соответствия требованиям регуляторов<br>
 
                             </div>
-                            <br>
+                            <br><br>
 
 
                             <div style="display:inline-block" class="word1">
@@ -551,9 +553,9 @@
                                 <input type="text" class="cube-input"  id="i24" maxlength="1">
                                 <input type="text" class="cube-input"  id="i25" maxlength="1">
                                 <input type="text" class="cube-input"  id="i26" maxlength="1">
-
+                                <br> Степень масштабируемости таких компонентов, как процессор, ?, сетевые адаптеры и система хранения, зависит от типа используемой архитектуры NAS<br>
                             </div>
-                            <br>
+                            <br><br>
 
 
 
@@ -564,9 +566,9 @@
                                 <input type="text" class="cube-input"  id="i33" maxlength="1">
                                 <input type="text" class="cube-input"  id="i34" maxlength="1">
                                 <input type="text" class="cube-input"  id="i35" maxlength="1">
-
+                                <br>Cервер общего назначения можно использовать для размещения ? приложения, поскольку он работает под управлением операционной системы общего назначения<br>
                             </div>
-                            <br>
+                            <br><br>
 
                             <div style="display:inline-block" class="word1">
                                 <label>4. </label>
@@ -580,12 +582,10 @@
                                 <input type="text" class="cube-input"  id="i48" maxlength="1">
                                 <input type="text" class="cube-input"  id="i49" maxlength="1">
                                 <input type="text" class="cube-input"  id="i410" maxlength="1">
-
-
-
+                                <br>Система NAS состоит из двух компонентов — ? и системы хранения<br>
                             </div>
 
-                            <br>
+                            <br><br>
                             <div style="display:inline-block" class="word1">
                                 <label>5. </label>
                                 <input type="text" class="cube-input"  id="i51" maxlength="1">
@@ -598,9 +598,10 @@
                                 <input type="text" class="cube-input"  id="i58" maxlength="1">
                                 <input type="text" class="cube-input"  id="i59" maxlength="1">
                                 <input type="text" class="cube-input"  id="i510" maxlength="1">
-
+                                <br> HSM — это концепция мобильности файлов, в рамках которой система политик, представляющая собой программное или ? обеспечение, в котором выполняется настройка политик, упрощает перемещение файлов из основной многоуровневой системы хранения во вторичную многоуровневую СХД в соответствии с предварительно настроенными политиками<br>
 
                             </div>
+                            <br><br>
                             <div style="display:inline-block" class="word1">
                                 <label>6. </label>
                                 <input type="text" class="cube-input"  id="i61" maxlength="1">
@@ -610,10 +611,11 @@
                                 <input type="text" class="cube-input"  id="i65" maxlength="1">
                                 <input type="text" class="cube-input"  id="i66" maxlength="1">
                                 <input type="text" class="cube-input"  id="i67" maxlength="1">
-
+                                <br> Многоуровневое хранение работает по принципу иерархического управления ? хранения<br>
 
 
                             </div>
+                            <br><br>
                             <div style="display:inline-block" class="word1">
                                 <label>7. </label>
                                 <input type="text" class="cube-input"  id="i71" maxlength="1">
@@ -626,13 +628,10 @@
                                 <input type="text" class="cube-input"  id="i78" maxlength="1">
                                 <input type="text" class="cube-input"  id="i79" maxlength="1">
                                 <input type="text" class="cube-input"  id="i710" maxlength="1">
-
-
-
-
+                                <br> Виртуализация на уровне файлов создаёт ? пул ресурсов хранения, предоставляя пользователям возможность использовать ? путь для доступа к файлам<br>
                             </div>
 
-                            <button type="button" onclick="check();" class="btn btn-warning btn-lg">Жми сюда, чтобы проверить!</button>
+                            <button style="display:none;" type="button" onclick="check();" class="btn btn-warning btn-lg">Жми сюда, чтобы проверить!</button>
                         </div>
 
 
