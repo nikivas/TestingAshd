@@ -38,7 +38,9 @@
                                     <input class="flag-input" type="text" id="i27" maxlength="1">      
                                 </div>
                                 <div class="col">&nbsp</div>
-                                <button id="send-flag" type="button" class="btn btn-success btn-lg" >Проверить</button>
+                                <div align="center">
+                                    <button id="send-flag" type="button" class="btn btn-success btn-lg" >Проверить</button>
+                                </div>
                             </div>
                             <div class="col-4 offset-1">
                                     <p>Введите флаг из квадрата:</p>
@@ -53,14 +55,7 @@
                                 </div>       
                             </div>
                         </div>
-                            
-                            
-                                    
-                            
                     </div>
-
-
-
                 </div>
             </div>
         </div>
