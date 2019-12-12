@@ -37,7 +37,6 @@ function lock(id) {
 
     for (var i = 1; i < lens[id]; i++) { firstWordIds.push('#i' + id.toString() + +i.toString()) }
     firstWordIds.forEach(function(el) {
-        $(el).val(' ');
         $(el).prop("disabled", true);
         $(el).css({ 'background': '#ccffcc' });
     });
