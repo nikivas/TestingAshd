@@ -32,7 +32,7 @@ class TestController extends Controller
         
         $ballQuery = DB::table('users_tests')
                         ->select(DB::raw('sum(tests.ball) as ball'))
-                        ->join('tests','users_tests.test_id', '=', 'tests.id')
+                        ->join(Test::getTableName(),'users_tests.test_id', '=', 'tests.id')
                         ->where('user_id', '=', $user['id'])
                         ->where('is_solved','=',1)
                         ->groupBy('user_id')
