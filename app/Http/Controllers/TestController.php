@@ -53,9 +53,9 @@ class TestController extends Controller
         foreach ($tests as $el) {
             $el['isSolved'] = $solvedTestsDictionary[$el['id']] ?? null;
         }
-
+        
         return view('tests/index')
-                ->with('tests', $tests)
+                ->with('tests', $tests->shuffle())
                 ->with('ball',$ball);
     }
 
