@@ -31,8 +31,8 @@ class TestController extends Controller
         $solvedTestsDictionary = [];
         
         $ballQuery = DB::table('users_tests')
-                        ->select(DB::raw('sum(tests.ball) as ball'))
-                        ->join(Test::getTableName(),'users_tests.test_id', '=', 'tests.id')
+                        ->select(DB::raw('sum('.Test::getTableName().'.ball) as ball'))
+                        ->join(Test::getTableName(),'users_tests.test_id', '=', Test::getTableName().'.id')
                         ->where('user_id', '=', $user['id'])
                         ->where('is_solved','=',1)
                         ->groupBy('user_id')
