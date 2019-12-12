@@ -4,7 +4,7 @@
 <div class="container task-wrap">
     <div class="row justify-content-center">
         <div class="card">
-            @if($ball < 190)
+            @if($ball < 210)
                 <div class="card-header" style="text-align: center;">Задания</div>
                 <div class="card-body">
                     @if (session('status'))
