@@ -19,6 +19,8 @@
         <script src="{{ asset('js/test.js') }}" defer></script>
     @elseif(Route::current()->getName() == 'home')
         <script src="{{ asset('js/flagCheck.js') }}" defer></script>
+    @elseif(Route::current()->getName() == 'cube')
+        <script src="{{ asset('js/cube.js') }}" defer></script>
     @endif
 
     <!-- Fonts -->
@@ -78,6 +80,11 @@
                                 {{ __('Тест') }}
                             </a>
                         </li>
+                        <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/cube') }}">
+                                    {{ __('Куб') }}
+                                </a>
+                            </li>
                         <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/crossword') }}">
                                     {{ __('Кроссворд') }}

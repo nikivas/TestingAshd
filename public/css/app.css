@@ -33,6 +33,23 @@
     font-family: Verdana;
 }
 
+.cube-input {
+    width: 28px;
+    height: 28px;
+    margin: 0px;
+    font: 18px bold;
+    text-align: center;
+    border-radius: 2px;
+    font-family: Verdana;
+    font-weight: bold;
+}
+
+.cube-th {
+    width: 23px !important;
+    height: 23px !important;
+    padding: 2px;
+}
+
 
 /* ---- particles.js container ---- */
 

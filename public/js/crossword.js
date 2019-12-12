@@ -172,31 +172,31 @@ $(document).ready(function() {
         for (var i = 1; i < lens[id]; i++) { firstWordIds.push('#i' + id + +i.toString()) }
         if (id == 1) {
             firstWordIds.forEach(function(el) {
-                $(el).click(input1.onchange);
+                $(el).change(input1.onchange);
             });
         } else if (id == 2) {
             firstWordIds.forEach(function(el) {
-                $(el).click(input2.onchange);
+                $(el).change(input2.onchange);
             });
         } else if (id == 3) {
             firstWordIds.forEach(function(el) {
-                $(el).click(input3.onchange);
+                $(el).change(input3.onchange);
             });
         } else if (id == 4) {
             firstWordIds.forEach(function(el) {
-                $(el).click(input4.onchange);
+                $(el).change(input4.onchange);
             });
         } else if (id == 5) {
             firstWordIds.forEach(function(el) {
-                $(el).click(input5.onchange);
+                $(el).change(input5.onchange);
             });
         } else if (id == 6) {
             firstWordIds.forEach(function(el) {
-                $(el).click(input6.onchange);
+                $(el).change(input6.onchange);
             });
         } else if (id == 7) {
             firstWordIds.forEach(function(el) {
-                $(el).click(input7.onchange);
+                $(el).change(input7.onchange);
             });
         }
     }

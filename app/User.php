@@ -42,6 +42,6 @@ class User extends Authenticatable
      * @return array
      */
     public static function getBall(User $user){
-        
+        $balls = Test::with('');
     }
 }
