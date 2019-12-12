@@ -94,6 +94,18 @@ class TestController extends Controller
         if (count($solvedTests) != 0 || $test == null) {
             return redirect()->route('tests.index');
         }
+
+        if ( $test['type'] == 'collocation') {
+            $firstIds = [];
+            foreach($tests['variables'][0] as $el){
+                $firstIds[] = $el['id'];
+            }
+            return view('tests/index')
+                ->with('tests', $tests)
+                ->with('ball',$ball)
+                ->with('firstIds', json_encode($firstIds));
+
+        }
         return view('tests.show')->with('test', $test);
     }
 
@@ -137,7 +149,7 @@ class TestController extends Controller
      * @return \Illuminate\Http\Response 
      */
     public function check(Request $request, $id)
-    {
+    {  
         $rules = ['answer' => 'required|string|min:1'];
         $validator = Validator::make($request->all(), $rules);
 
@@ -161,6 +173,54 @@ class TestController extends Controller
         foreach ([&$answer, &$rightAnswer] as &$el) {
             usort($el, function ($a, $b) {
                 return strcmp(strval($a->id), strval($b->id));
+            });
+        }
+        unset($el);
+
+        $rightAnswer = json_encode($rightAnswer);
+        $answer = json_encode($answer);
+
+        // dd($answer);
+        // dd($rightAnswer);
+
+        if (strcmp($rightAnswer, $answer) == 0) {
+            $isSolved = 1;
+        }
+
+        UserTest::create([
+            'user_id' => $user['id'],
+            'test_id' => $test['id'],
+            'is_solved' => $isSolved
+        ]);
+
+        return redirect()->route('tests.index');
+    }
+
+    public function checkCollocation(Request $request, $id)
+    {  
+        $rules = ['answer' => 'required|string|min:1'];
+        $validator = Validator::make($request->all(), $rules);
+
+        $tryesCount = count(UserTest::where('user_id','=',Auth::user()['id'])->where('test_id','=',$id)->get());
+
+        if ($validator->fails() || $tryesCount > 0) {
+            return redirect()->route('tests.index');
+        }
+
+        $test = Test::find($id);
+        $user = Auth::user();
+        $isSolved = 0;
+
+        if (!$test || !$user)
+            return redirect()->route('tests.index');
+
+        $answer = json_decode($request->get('answer'));
+        $rightAnswer = json_decode($test['answer']);
+
+        //sorting by keys
+        foreach ([&$answer, &$rightAnswer] as &$el) {
+            usort($el, function ($a, $b) {
+                return strcmp(strval($a->id1), strval($b->id1));
             });
         }
         unset($el);

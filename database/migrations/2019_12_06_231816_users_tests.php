@@ -19,8 +19,7 @@ class UsersTests extends Migration
             $table->unsignedBigInteger('test_id');
             $table->integer('is_solved');
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('test_id')->references('id')->on('tests')->onDelete('cascade');
+            
         }); 
     }
 

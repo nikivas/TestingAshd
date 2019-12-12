@@ -30,18 +30,33 @@
                         @endforeach
                     @elseif ($test['type'] == 'collocation')
                         <div class="row">
-                            @foreach (json_decode($test['variables']) as $col)
+                            
                             <div class="col">
-                                @foreach ($col as $row)
+                                <div style="display:none;">
+                                    <input id="firstCollumnIds" type="text" value="{{json_encode($test['variables'])}}">
+                                </div>
+                                @foreach (json_decode($test['variables'])[0] as $row)
                                     <div class="row">
+                                        {{$row->id}}.&nbsp
                                         {{$row->text}}
                                     </div>
                                 @endforeach
                             </div>
-                            @endforeach
+                            <div class="col">
+                                    @foreach (json_decode($test['variables'])[1] as $row)
+                                        <div class="row">
+                                            {{$row->id}}.&nbsp
+                                            {{$row->text}}
+                                        </div>
+                                    @endforeach
+                                </div>
                         </div>
                     @endif
-                    <form method="POST">
+                    @if($test['type'] == 'collocation')
+                    <form mrthod="POST" action="/tests/collocation/{{$test['id']}}">
+                    @else
+                    <form method="POST" >
+                    @endif
                         <div class="form-group row">
 
                             <!-- <label for="flag" class="col-md-1 col-form-label text-md-center ">Flag</label> -->

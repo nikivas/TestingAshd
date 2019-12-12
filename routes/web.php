@@ -23,6 +23,8 @@ Route::resources([
 ]);
 
 Route::post('/tests/{test}','TestController@check')->name('test.check');
+Route::post('/tests/collocation/{test}','TestController@check')->name('test.collocation.check');
+
 Route::get('/crossword', 'CrosswordController@index')->name('crossword');
 
 Route::get('/cube', 'CubeController@index')->name('cube');
