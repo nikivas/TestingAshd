@@ -520,7 +520,7 @@
 
 
                         <div class="col-6">
-                            <h5> Впишите в маски справа</h5>
+                            <h5> Впишите в маски</h5>
                             <br>
 
                             <div style="display:inline-block" class="word1">
