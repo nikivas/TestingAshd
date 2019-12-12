@@ -68,6 +68,9 @@
     font-size: 1.1em;
 }
 
+.cnt-center{
+    align-content: center;
+}
 
 /* ---- particles.js container ---- */
 

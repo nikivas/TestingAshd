@@ -8,7 +8,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Введите ответы:</div>
+                <div class="card-header cnt-center"><p>Введите ответы</p></div>
 
                 <div class="card-body">
                     @if (session('status'))
